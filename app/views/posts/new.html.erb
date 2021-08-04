@@ -1,1 +1,7 @@
-<%= render 'form', post: Post.new %>
+<%= form_for @post do |p| %>
+  <%= p.label :categories %>
+  <%= p.text_field :categories %><br>
+  <%= p.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+  <%= p.submit %>
+<% end %>
+
